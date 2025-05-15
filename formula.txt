@@ -1,0 +1,25 @@
+
+~ is te bitwise NOT op 
+F(B, C, D, i):
+    if 0 <= i <= 15:
+        return (B & C) | ((~B) & D)
+    if 16 <= i <= 31:
+        return (D & B) | ((~D) & C)
+    if 32 <= i <= 47:
+        return B ^ C ^ D
+    if 48 <= i <= 63:
+        return C ^ (B | (~D))
+    
+
+index formulas
+first loop : i % 16
+second loop : (5i + 1) % 16
+third loop : (3i + 5) % 16
+fourth loop : 7i % 16 
+
+method of combining :
+A + F(B, C, D, i) 
++ 32-bit from original input based on index formulas
++ 32-bit from pre-determined array K (64 constants)
+rotate by r[i] (also pre-determined array)
++ B 
