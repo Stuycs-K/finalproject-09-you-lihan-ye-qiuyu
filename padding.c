@@ -31,6 +31,10 @@ int main(){
   uint32_t bits = strlen(str) * 8;
   uint32_t pad = bits % 512 - 1;
   size_t len = ((strlen(str) + pad + 1) + 8);
-  unsigned char *padded = malloc(len);
+  
+  uint32_t *output = (uint32_t *)malloc(size * 32);
+  for (int i = 0; i < size; i++) {
+    output[i] = 0b0;
+  }
 
 }
