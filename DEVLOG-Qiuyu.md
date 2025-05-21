@@ -15,3 +15,6 @@ worked on the padding algorithm and printing the binary out to verify everything
 
 ### 2025-05-19 -
 finished padding and should work for almost everything except for haven't tested blocks bigger bigger than a 32 bit integer
+
+### 2025-05-20 -
+started working on hash algorithm and working on learning more for things like working variables and the process for blocks > 512
