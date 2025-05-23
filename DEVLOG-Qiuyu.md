@@ -18,3 +18,11 @@ finished padding and should work for almost everything except for haven't tested
 
 ### 2025-05-20 -
 started working on hash algorithm and working on learning more for things like working variables and the process for blocks > 512
+
+### 2025-05-21 -
+started implementing the hash algorithm
+
+### 2025-05-22 -
+working on hash algorithm
+
+### 2025-05-23 -

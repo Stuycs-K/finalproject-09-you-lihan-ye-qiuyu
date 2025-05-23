@@ -34,11 +34,11 @@ void print_bits(uint32_t *array, size_t length) {
     }
 }
 
-int main(){
-  unsigned char c = 'a';
+uint32_t * pad(char * str){
+  // unsigned char c = 'a';
   // print_bin_char(c);
   // printf("\n");
-  char * str = "md5_testmd5_testmd5_testmd5_testmd5_testmd5_testmd5_testmd5_test";
+  // char * str = "md5_testmd5_testmd5_testmd5_testmd5_testmd5_testmd5_testmd5_test";
   print_bin_str(str);
   printf("\n");
   //if password has null character, wont work correctly
@@ -65,11 +65,25 @@ int main(){
   output[bits/32] = output[bits/32] | 1 << (7 + (24 - 8 * n));
   for (int i = bits/32 + 1; i < (size / 32 - 2); i++) {
     // printf("%d\n", i);
-    output[i] = 128;
+    output[i] = 0b0;
   }
   printf("%d\n", bits);
   output[size/32 - 2] = bits >> 32;
   output[size/32 - 1] = (uint32_t)bits;
   print_bits(output, size/32);
+  return output;
+}
+int main(){
+  // unsigned char c = 'a';
+  // print_bin_char(c);
+  // printf("\n");
+  char * str = "md5_testmd5_testmd5_testmd5_testmd5_testmd5_testmd5_testmd5_testm";
+  uint32_t a = 0x67452301;
+  uint32_t b = 0xEFCDAB89;
+  uint32_t c = 0x98BADCFE;
+  uint32_t d = 0x10325476;
+
+  pad(str);
+
 
 }
