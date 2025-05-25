@@ -83,6 +83,11 @@ int main(){
   uint32_t c = 0x98BADCFE;
   uint32_t d = 0x10325476;
 
+  uint32_t tempC = b;
+  uint32_t tempD = c;
+  uint32_t tempA = d;
+
+
   pad(str);
 
 
