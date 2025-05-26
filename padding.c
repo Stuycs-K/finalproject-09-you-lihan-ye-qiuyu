@@ -67,4 +67,35 @@ void print_state(uint32_t A, uint32_t B, uint32_t C, uint32_t D, int step) {
     return (uint32_t *)padded_bytes;
   }
 
+<<<<<<< HEAD
 }
+=======
+  uint32_t F(uint32_t b, uint32_t c, uint32_t d, int i){
+    if (i < 16){
+      return (b & c) | ((~b) & d);
+    }
+    else if (i < 32) {
+      return (d & b) | ((~d) & c);
+    }
+    else if (i < 48) {
+      return b ^ c ^ d;
+    }
+    else {
+      return c ^ (b | (~d));
+    }
+  }
+
+  uint32_t rotate(uint32_t x, uint32_t n) {
+    return (x << n) | (x >> (32 - n));
+  }
+
+  void print_md5(uint8_t *md5) {
+    for (int i = 0; i < 16; i++) printf("%02x", md5[i]);
+    printf("\n");
+  }
+
+
+  int main(){
+    
+  }
+>>>>>>> leo
