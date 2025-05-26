@@ -29,4 +29,5 @@ working on hash algorithm
 wrote functions needed to combine the words and the redbox
 
 ### 2025-05-25 -
-added predefined arrays
+added predefined arrays and wrote hash logic
+finished writing md5 algorithm except for when the starting input is > 512
