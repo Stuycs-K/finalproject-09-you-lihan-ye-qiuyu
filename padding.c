@@ -67,9 +67,6 @@ void print_state(uint32_t A, uint32_t B, uint32_t C, uint32_t D, int step) {
     return (uint32_t *)padded_bytes;
   }
 
-<<<<<<< HEAD
-}
-=======
   uint32_t F(uint32_t b, uint32_t c, uint32_t d, int i){
     if (i < 16){
       return (b & c) | ((~b) & d);
@@ -96,6 +93,5 @@ void print_state(uint32_t A, uint32_t B, uint32_t C, uint32_t D, int step) {
 
 
   int main(){
-    
+
   }
->>>>>>> leo
