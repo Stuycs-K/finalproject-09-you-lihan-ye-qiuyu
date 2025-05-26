@@ -37,7 +37,7 @@ void print_state(uint32_t A, uint32_t B, uint32_t C, uint32_t D, int step) {
     }
   }
 
-  uint32_t * pad(char * input){
+  uint32_t * pad(char * input, int *padded_len){
     size_t len = strlen(input);
     uint64_t bit_len = (uint64_t)len * 8;
 
@@ -60,7 +60,7 @@ void print_state(uint32_t A, uint32_t B, uint32_t C, uint32_t D, int step) {
       padded_bytes[new_len - 8 + i] = (uint8_t)(bit_len >> (8 * i));
     }
 
-    // *padded_len = new_len / 4; // 32-bit word count
+    *padded_len = new_len / 64; // 32-bit word count
 
     // print_bits((uint32_t *)padded_bytes, 16);
     // printf("\n");
@@ -121,66 +121,83 @@ void print_state(uint32_t A, uint32_t B, uint32_t C, uint32_t D, int step) {
       6, 10, 15, 21, 6, 10, 15, 21, 6, 10, 15, 21, 6, 10, 15, 21
     };
 
-    char * str = "a";
-    uint32_t * padded = pad(str);
-    uint32_t a = 0x67452301;
-    uint32_t b = 0xEFCDAB89;
-    uint32_t c = 0x98BADCFE;
-    uint32_t d = 0x10325476;
-    printf("\n");
-    int i = 0;
-    while(i < 64){
-      print_state(a, b, c, d, i);
-      uint32_t k = 0;
-      if (i < 16) {
-        k = i;
-      }
-      else if (i < 32) {
-        k = (5 * i + 1) % 16;
-      }
-      else if (i < 48) {
-        k = (3 * i + 5) % 16;
-      }
-      else {
-        k = (7 * i) % 16;
-      }
+    char * str = "12345678901234567890123456789012345678901234567890123456789012345678901234567890";
+    int blocks = 1;
+    uint32_t * padded = pad(str, &blocks);
+    printf("num blocks: %d\n", blocks);
+    uint32_t a1 = 0x67452301;
+    uint32_t b1 = 0xEFCDAB89;
+    uint32_t c1 = 0x98BADCFE;
+    uint32_t d1 = 0x10325476;
+    for (int j = 0; j < blocks; j++){
+      uint32_t a = a1;
+      uint32_t b = b1;
+      uint32_t c = c1;
+      uint32_t d = d1;
 
-      uint32_t temp = b + rotate((a + F(b, c, d, i) + K[i] + padded[k]), r[i]);;
-      printf("%08x\n", b + F(b, c, d, i) + K[i] + padded[k]);
-      a = d;
-      d = c;
-      c = b;
-      b = temp;
+      uint32_t M[16];
+      for (int m = 0; m < 16; m++) {
+        int byte_index = j * 64 + m * 4;
+        M[m] = ((uint8_t*)padded)[byte_index] |
+        ((uint8_t*)padded)[byte_index + 1] << 8 |
+        ((uint8_t*)padded)[byte_index + 2] << 16 |
+        ((uint8_t*)padded)[byte_index + 3] << 24;
+      }
+      int i = 0;
+      while(i < 64){
+        print_state(a, b, c, d, i);
+        uint32_t k = 0;
+        if (i < 16) {
+          k = i;
+        }
+        else if (i < 32) {
+          k = (5 * i + 1) % 16;
+        }
+        else if (i < 48) {
+          k = (3 * i + 5) % 16;
+        }
+        else {
+          k = (7 * i) % 16;
+        }
 
-      i++;
+        uint32_t temp = b + rotate((a + F(b, c, d, i) + K[i] + M[k]), r[i]);
+        printf("%d\n", k + j * 64);
+        // printf("%08x\n", b + F(b, c, d, i) + K[i] + padded[k]);
+        a = d;
+        d = c;
+        c = b;
+        b = temp;
+
+        i++;
+      }
+      // print_state(a, b, c, d, 63);
+      a1 += a;
+      b1 += b;
+      c1 += c;
+      d1 += d;
     }
-    // print_state(a, b, c, d, 63);
-    a += 0x67452301;
-    b += 0xefcdab89;
-    c += 0x98badcfe;
-    d += 0x10325476;
     // print_state(a, b, c, d, 100);
     uint8_t md5_hash[16];
 
-    md5_hash[0] = (a >> 0) & 0xFF;
-    md5_hash[1] = (a >> 8) & 0xFF;
-    md5_hash[2] = (a >> 16) & 0xFF;
-    md5_hash[3] = (a >> 24) & 0xFF;
+    md5_hash[0] = (a1 >> 0) & 0xFF;
+    md5_hash[1] = (a1 >> 8) & 0xFF;
+    md5_hash[2] = (a1 >> 16) & 0xFF;
+    md5_hash[3] = (a1 >> 24) & 0xFF;
 
-    md5_hash[4] = (b >> 0) & 0xFF;
-    md5_hash[5] = (b >> 8) & 0xFF;
-    md5_hash[6] = (b >> 16) & 0xFF;
-    md5_hash[7] = (b >> 24) & 0xFF;
+    md5_hash[4] = (b1 >> 0) & 0xFF;
+    md5_hash[5] = (b1 >> 8) & 0xFF;
+    md5_hash[6] = (b1 >> 16) & 0xFF;
+    md5_hash[7] = (b1 >> 24) & 0xFF;
 
-    md5_hash[8] = (c >> 0) & 0xFF;
-    md5_hash[9] = (c >> 8) & 0xFF;
-    md5_hash[10] = (c >> 16) & 0xFF;
-    md5_hash[11] = (c >> 24) & 0xFF;
+    md5_hash[8] = (c1 >> 0) & 0xFF;
+    md5_hash[9] = (c1 >> 8) & 0xFF;
+    md5_hash[10] = (c1 >> 16) & 0xFF;
+    md5_hash[11] = (c1 >> 24) & 0xFF;
 
-    md5_hash[12] = (d >> 0) & 0xFF;
-    md5_hash[13] = (d >> 8) & 0xFF;
-    md5_hash[14] = (d >> 16) & 0xFF;
-    md5_hash[15] = (d >> 24) & 0xFF;
+    md5_hash[12] = (d1 >> 0) & 0xFF;
+    md5_hash[13] = (d1 >> 8) & 0xFF;
+    md5_hash[14] = (d1 >> 16) & 0xFF;
+    md5_hash[15] = (d1 >> 24) & 0xFF;
 
     print_md5(md5_hash);
 
