@@ -26,3 +26,7 @@ started implementing the hash algorithm
 working on hash algorithm
 
 ### 2025-05-23 -
+wrote functions needed to combine the words and the redbox
+
+### 2025-05-25 -
+added predefined arrays
