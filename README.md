@@ -7,20 +7,24 @@ Li Han You, Leo Ye
        
 ### Project Description:
 
-Our project is a recreation of the MD5 encryption tool. 
+Our project is a recreation of the MD5 encryption tool. Our program will take any alphanumeric string and convert it into a 128-bit hash. 
   
 ### Instructions:
 
-How does the user install/compile/run the program. (CHANGE THIS!!!!!)
-How does the user interact with this program? (CHANGE THIS!!!!!)
+You have two options when running our program:   
+1. Input your own string    
+`make run ARGS="YOUR_STRING"`
+2. Use a preset string     
+`make run ARGS="PRESET [1-3]"`
 
 ### Resources/ References:
 
-1. https://www.youtube.com/watch?v=5MiMK45gkTY    
-2. https://www.geeksforgeeks.org/what-is-the-md5-algorithm/    
-3. https://en.wikipedia.org/wiki/MD5 
+1. [Amazing Youtube Video By Rareskills](https://www.youtube.com/watch?v=5MiMK45gkTY)
+2. [GeeksforGeeks](https://www.geeksforgeeks.org/what-is-the-md5-algorithm/)   
+3. [Wikipedia](https://en.wikipedia.org/wiki/MD5) 
 
-We used the Wikipedia and GeeksforGeeks as a starter for MD5, allowing use to understand the general gist of MD5.   
-However, it was confusing and hard to visualize the way the bitwise operations worked using their explanations.   
-So we used the video as a guide since the animations clarified any confusion we had of the process.   
+We used the Wikipedia and GeeksforGeeks as a starter for MD5, allowing use to understand the general gist of MD5.
+However, it was confusing and hard to visualize the way the bitwise operations worked using their explanations. 
+
+So we used the video as a guide since the animations clarified any confusion we had of the process.
 The video also did a great job breaking down the more layered portions of the encryption.    
