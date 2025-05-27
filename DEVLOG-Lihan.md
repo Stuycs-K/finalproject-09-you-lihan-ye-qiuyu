@@ -12,3 +12,15 @@ We decided on a general idea and sent an email out asking for approval and addit
 Read articles and watched videos on the process of MD5 hashing.
 Wrote down all the formulas needed to perform MD5 hash in a .txt file for future use.
 
+### 2025-05-19 -
+Started on README.md, organizing all the requirements and task, and helped Leo with padding
+
+### 2025-05-20 -
+
+### 2025-05-21 -
+
+### 2025-05-22 -
+
+### 2025-05-23 -
+
+### 2025-05-25 -
