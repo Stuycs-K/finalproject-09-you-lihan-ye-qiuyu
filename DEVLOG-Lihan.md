@@ -20,9 +20,10 @@ Pair programming working on first step of MD5.
 Started working on PRESENTATION.md. 
 
 ### 2025-05-21 -
+Worked on implementing the redbox portion of the algorithm.
 
 ### 2025-05-22 -
+continued work on redbox
 
-### 2025-05-23 -
-
-### 2025-05-25 -
+### 2025-05-27
+organized files into header files, wrote user input and finished readme
