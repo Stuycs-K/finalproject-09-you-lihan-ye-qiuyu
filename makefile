@@ -9,9 +9,9 @@ print_functions.o: print_functions.c
 	@gcc -c print_functions.c
 
 compile_md5: md5.o algorithm_functions.o algorithm_functions.h print_functions.o print_functions.h
-	@gcc -o encrypt md5 algorithm_functions.o print_functions.o -Wall
+	@gcc -o encrypt md5.o algorithm_functions.o print_functions.o -Wall
 
-encrypt: compile_md5
+run: compile_md5
 	@./encrypt
 
 clean:
