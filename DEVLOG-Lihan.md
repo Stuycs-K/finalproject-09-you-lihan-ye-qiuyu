@@ -16,6 +16,8 @@ Wrote down all the formulas needed to perform MD5 hash in a .txt file for future
 Started on README.md, organizing all the requirements and task, and helped Leo with padding
 
 ### 2025-05-20 -
+Pair programming working on first step of MD5.
+Started working on PRESENTATION.md. 
 
 ### 2025-05-21 -
 
