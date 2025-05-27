@@ -75,19 +75,7 @@ int main(int argc, char *argv[]){
             int i = 0;
             while(i < 64){
                 //print_state(a, b, c, d, i);
-                uint32_t k = 0;
-                if (i < 16) {
-                k = i;
-                }
-                else if (i < 32) {
-                k = (5 * i + 1) % 16;
-                }
-                else if (i < 48) {
-                k = (3 * i + 5) % 16;
-                }
-                else {
-                k = (7 * i) % 16;
-                }
+                int k = find_index_original(i);
 
                 uint32_t temp = b + rotate((a + F(b, c, d, i) + K[i] + M[k]), r[i]);
                 //printf("%d\n", k + j * 64);

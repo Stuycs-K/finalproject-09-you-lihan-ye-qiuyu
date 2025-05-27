@@ -48,16 +48,24 @@ uint32_t * pad(char * input, int *padded_len){
 uint32_t F(uint32_t b, uint32_t c, uint32_t d, int i){
     if (i < 16){
         return (b & c) | ((~b) & d);
-    }
-    else if 
-    (i < 32) {
+    } else if (i < 32) {
         return (d & b) | ((~d) & c);
-    }
-    else if (i < 48) {
+    } else if (i < 48) {
         return b ^ c ^ d;
-    }
-    else {
+    } else {
         return c ^ (b | (~d));
+    }
+}
+
+int find_index_original(int i) {
+    if (i < 16) {
+        return i;
+    } else if (i < 32) {
+        return (5 * i + 1) % 16;
+    } else if (i < 48) {
+        return(3 * i + 5) % 16;
+    } else {
+        return (7 * i) % 16;
     }
 }
 
