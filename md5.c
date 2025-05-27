@@ -9,13 +9,29 @@
 int main(int argc, char *argv[]){
     char* str;
     int start = 0;
-    if (argc < 2) {
-        printf("You need to input a string to encode!\n");
-        exit(1);
+    if (argc == 1) {
+        printf("You need to input a string to encode or use one of the presets!\n");
+        return 0;
     } else {
         if (containsSpecialCharacter(argv[1])) {
             printf("Your string can only contain alphanumeric characters (a-z A-Z 0-9)\n");
-            exit(1);
+            return 0;
+        } else if(strcmp(argv[1], "PRESET") == 0){
+            int num = atoi(argv[2]);
+            if (num > 0 && num < 4) start = 1;
+            if (num > 3 || num < 0) {
+                printf("Please input a correct preset");
+                return 0;
+            } else if (num == 0) {
+                printf("String to int conversion error");
+                exit(1);
+            } else if (num == 1) {
+                str = "STUYCS";
+            } else if (num  == 2) {
+                str = "TryHackMe";
+            } else if (num == 3) { 
+                str = "RockYouPasswordList";
+            }
         } else { 
             start = 1;
             str = argv[1];
@@ -23,6 +39,7 @@ int main(int argc, char *argv[]){
     }
 
     if (start) {
+        printf("Encoding the string : %s\n", str);
         // constants are the integer part of the sines of integers (in radians) * 2^32.
         const uint32_t K[64] = {
             0xd76aa478, 0xe8c7b756, 0x242070db, 0xc1bdceee ,
@@ -116,6 +133,7 @@ int main(int argc, char *argv[]){
         md5_hash[14] = (d1 >> 16) & 0xFF;
         md5_hash[15] = (d1 >> 24) & 0xFF;
 
+        printf("Your hash is : ");
         print_md5(md5_hash);
 
         free(padded);
