@@ -16,6 +16,11 @@ How does the user interact with this program? (CHANGE THIS!!!!!)
 
 ### Resources/ References:
 
-https://www.youtube.com/watch?v=5MiMK45gkTY
-https://www.geeksforgeeks.org/what-is-the-md5-algorithm/
-https://en.wikipedia.org/wiki/MD5
+1. https://www.youtube.com/watch?v=5MiMK45gkTY    
+2. https://www.geeksforgeeks.org/what-is-the-md5-algorithm/    
+3. https://en.wikipedia.org/wiki/MD5 
+
+We used the Wikipedia and GeeksforGeeks as a starter for MD5, allowing use to understand the general gist of MD5.   
+However, it was confusing and hard to visualize the way the bitwise operations worked using their explanations.   
+So we used the video as a guide since the animations clarified any confusion we had of the process.   
+The video also did a great job breaking down the more layered portions of the encryption.    
