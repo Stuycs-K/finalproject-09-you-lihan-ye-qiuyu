@@ -2,6 +2,18 @@
 #include <stdlib.h>
 #include <string.h>
 #include <stdint.h>
+#include <ctype.h> 
+
+
+int containsSpecialCharacter(const char *str) {
+    while (*str) {
+        if (!isalnum((unsigned char)*str)) {
+            return 1;
+        }
+        str++;
+    }
+    return 0;
+}
 
 uint32_t * pad(char * input, int *padded_len){
     size_t len = strlen(input);

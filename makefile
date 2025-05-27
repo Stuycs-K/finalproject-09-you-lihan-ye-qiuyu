@@ -12,7 +12,9 @@ compile_md5: md5.o algorithm_functions.o algorithm_functions.h print_functions.o
 	@gcc -o encrypt md5.o algorithm_functions.o print_functions.o -Wall
 
 run: compile_md5
-	@./encrypt
+	@./encrypt $(ARGS)
+	@rm -f *.o
+	@rm -f encrypt 
 
 clean:
 	rm -f *.o
