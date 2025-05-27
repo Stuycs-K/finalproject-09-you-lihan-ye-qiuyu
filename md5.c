@@ -15,6 +15,7 @@ int main(int argc, char *argv[]){
     } else {
         if (containsSpecialCharacter(argv[1])) {
             printf("Your string can only contain alphanumeric characters (a-z A-Z 0-9)\n");
+            exit(1);
         } else { 
             start = 1;
             str = argv[1];
