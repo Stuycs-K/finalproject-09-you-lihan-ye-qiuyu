@@ -37,3 +37,4 @@ worked on presentation
 
 ### 2025-05-27 -
 worked on getting the hashcat version working
+added animation to hashcat to show progress
