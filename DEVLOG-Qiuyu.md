@@ -31,3 +31,9 @@ wrote functions needed to combine the words and the redbox
 ### 2025-05-25 -
 added predefined arrays and wrote hash logic
 finished writing md5 algorithm except for when the starting input is > 512
+
+### 2025-05-26 -
+worked on presentation
+
+### 2025-05-27 -
+worked on getting the hashcat version working
