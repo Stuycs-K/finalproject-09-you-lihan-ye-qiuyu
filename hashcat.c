@@ -178,11 +178,25 @@ uint8_t * hash(char * str){
 }
 
 int main(int argc, char *argv[]){
+  char* passwdList = "";
+  char* crack = "";
+  if (argc == 1){
+    printf("please enter a hash or a hash and a password list\n");
+  }
+  else if (argc == 2) {
+    printf("using rockyou.txt\n");
+    passwdList = "rockyou.txt";
+    crack = argv[1];
+  }
+  else{
+    crack = argv[1];
+    passwdList = argv[2];
+
+  }
   pid_t p = fork();
   if (p == 0){
     const char *base = "starting";
     int i = 0;
-    
     while (1) {
       printf("\r%s", base);
       for (int j = 0; j < i; j++) {
@@ -196,7 +210,7 @@ int main(int argc, char *argv[]){
   }
   else{
 
-    FILE* file = fopen("rockyou.txt", "r");
+    FILE* file = fopen(passwdList, "r");
     int count = 0;
     int ch;
     while ((ch = fgetc(file)) != EOF) {
@@ -233,12 +247,12 @@ int main(int argc, char *argv[]){
       buffer[128] = '\0';
       // printf("\n");
       // printf("%s\n", buffer);
-      if (!strcmp(buffer, "3ba799d8d6cd83fe1342ee4e60d2672e")){
+      if (!strcmp(buffer, crack)){
         printf("\n");
         printf("password found!\n");
         printf("hash: %s\n", buffer);
         printf("passwd: %s\n", line);
-        printf("number of passwords: %d\n", i);
+        printf("number of passwords checked: %d\n", i);
         exit(0);
       }
     }

@@ -38,3 +38,6 @@ worked on presentation
 ### 2025-05-28 -
 worked on getting the hashcat version working
 added animation to hashcat to show progress
+
+### 2025-05-28 -
+added arguments to hashcat and also argument checking
