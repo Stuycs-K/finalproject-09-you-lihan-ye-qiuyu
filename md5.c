@@ -10,13 +10,10 @@ int main(int argc, char *argv[]){
     char* str;
     int start = 0;
     if (argc == 1) {
-        printf("You need to input a string to encode or use one of the presets!\n");
-        return 0;
+        str = "";
+        start = 1;
     } else {
-        if (containsSpecialCharacter(argv[1])) {
-            printf("Your string can only contain alphanumeric characters (a-z A-Z 0-9)\n");
-            return 0;
-        } else if(strcmp(argv[1], "PRESET") == 0){
+        if(strcmp(argv[1], "PRESET") == 0){
             int num = atoi(argv[2]);
             if (num > 0 && num < 4) start = 1;
             if (num > 3 || num < 0) {
