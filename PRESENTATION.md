@@ -69,8 +69,6 @@ Notice : if the input is already 448-bit, we move to the next multiple of 512
 4. Take the binary value of the bit-size of original input 
 5. Attach step 4 to the end of the 448-bit and add 0-bits until it reaches 512-bits
 
-
-
 ### Manipulating A
 1. Use the F function on B, C, D and add it to A
 7. Add the result of step 1 with a 32-bit from the original input using an index calculated with the index formula
