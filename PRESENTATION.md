@@ -50,30 +50,30 @@ Third loop [32 - 47] : `B ^ C ^ D`
 2. Split each 512-bit into 16 32-bit values in arrays 
 3. Split the state into four 32-bit values in variables A, B, C, D
 
-### Manipulate the state
-4. Determine which the steps of the index by the given formula
+### Manipulation and shifting
 5. Shift B, C, D up a letter leaving A (B -> C', C -> D', D -> A')
-
-### Manipulating A
-6. Use the F function on B, C, D and add it to A
-7. Add the result of step 6 with the 32-bit from the original input using the index formula
-8. Add step 7 to a value from K[] using the current index
-9. Rotate step 8 by the value from r[] using the current index
-10. Add step 9 to B 
-11. Insert the final value into B'
+6. Apply manipulation and shifts to A 
+7. Shift A into B'
 
 ### Looping 
-12. Repeat the manipulation 64 times for each 512-bit section
-13. Recombine the four 32-bit values (A, B, C, D) into one 128-bit value and that is your hash
+7. Repeat the manipulation 64 times for each 512-bit section
+8. Recombine the four 32-bit values (A, B, C, D) into one 128-bit value and that is your hash
 
-## Detailed Steps 
+## Detail Steps 
 
-### Padding
+### Padding 
+Notice : if the input is already 448-bit, we move to the next multiple of 512
+1. Convert the string into binary 
+2. Add a 1-bit
+3. Keep adding 0-bits until the size reaches 64-bits less than a multiple of 512-bits
+4. Take the binary value of the bit-size of original input 
+5. Attach step 4 to the end of the 448-bit and add 0-bits until it reaches 512-bits
 
-### Shifting
 
-### Bitwise Operations
 
-### F Function 
-
-### Redbox 
+### Manipulating A
+1. Use the F function on B, C, D and add it to A
+7. Add the result of step 1 with a 32-bit from the original input using an index calculated with the index formula
+8. Add step 2 to a value from K[] using the current index
+9. Rotate step 3 by the value from r[] using the current index
+10. Add step 4 to B
