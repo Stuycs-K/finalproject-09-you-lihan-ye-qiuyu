@@ -252,7 +252,7 @@ int main(int argc, char *argv[]){
         printf("password found!\n");
         printf("hash: %s\n", buffer);
         printf("passwd: %s\n", line);
-        printf("number of passwords checked: %d\n", i);
+        printf("passwords checked: %d\n", i);
         exit(0);
       }
     }
