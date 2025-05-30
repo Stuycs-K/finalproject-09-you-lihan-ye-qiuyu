@@ -26,4 +26,5 @@ hashcat: compile_hashcat
 
 clean:
 	rm -f *.o
-	rm -f encrypt                
+	rm -f encrypt       
+	rm -f hashcat         
