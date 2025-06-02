@@ -7,7 +7,8 @@ Li Han You, Leo Ye
        
 ### Project Description:
 
-Our project is a recreation of the MD5 encryption tool. Our program will take any alphanumeric string and convert it into a 128-bit hash. 
+Our project is a recreation of the MD5 encryption tool. Our program will take any string and convert it into a 128-bit hash.   
+We also created our own version of hashcat, using our MD5 encryption tool. 
   
 ### Instructions:
 

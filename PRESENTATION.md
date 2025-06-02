@@ -1,3 +1,4 @@
+# MD5
 ## Simple Methodology / Overview
 A string is taken and padded to be manipulated and output a 128-bit hash. The string goes through a series of shifts and bitwise operations. 
 
@@ -75,3 +76,8 @@ Notice : if the input is already 448-bit, we move to the next multiple of 512
 8. Add step 2 to a value from K[] using the current index
 9. Rotate step 3 by the value from r[] using the current index
 10. Add step 4 to B
+
+
+# Hashcat
+## Methodology / Overview
+Hashcat uses brute-force when cracking a hash. This means the algorithm runs every password in a pwd_list and compares the hash to the given hash. We can replicate this by simply applying our own MD5 algorithm on each password in the pwd_list and compare it to a user inputted hash. 
