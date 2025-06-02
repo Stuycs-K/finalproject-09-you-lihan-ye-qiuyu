@@ -9,6 +9,8 @@
 #include "print_functions.h"
 #include "algorithm_functions.h"
 
+//echo time (while read -r line: do echo -n $line | md5sum; done < rockyou.txt)
+
 uint8_t * hash(char * str){
   const uint32_t K[64] = {
     0xd76aa478, 0xe8c7b756, 0x242070db, 0xc1bdceee ,
