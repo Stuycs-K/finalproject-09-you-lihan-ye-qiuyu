@@ -27,3 +27,12 @@ continued work on redbox
 
 ### 2025-05-27
 organized files into header files, wrote user input and finished readme
+
+### 2025-05-28
+worked on hashcat with leo + worked on presentation
+
+### 2025-05-29
+adjusted makefile to include hashcat + worked on readme and presentation
+
+### 2025-05-30
+finished readme and presentation
