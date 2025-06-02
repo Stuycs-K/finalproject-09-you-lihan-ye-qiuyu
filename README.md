@@ -11,11 +11,15 @@ Our project is a recreation of the MD5 encryption tool. Our program will take an
   
 ### Instructions:
 
-You have two options when running our program:   
+You have two options when running our hash program:   
 1. Input your own string    
 `make run ARGS="YOUR_STRING"`
 2. Use a preset string     
 `make run ARGS="PRESET [1-3]"`
+
+You can also decode your hash using our hashcat:  
+*Note: We recommend using the rockyou pwd list*            
+`make run ARGS="YOUR_HASH PWD_LIST"`
 
 ### Resources/ References:
 
