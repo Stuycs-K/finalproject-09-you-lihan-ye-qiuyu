@@ -12,6 +12,9 @@ We decided on a general idea and sent an email out asking for approval and addit
 Read articles and watched videos on the process of MD5 hashing.
 Wrote down all the formulas needed to perform MD5 hash in a .txt file for future use.
 
+[Video By Rareskills](https://www.youtube.com/watch?v=5MiMK45gkTY)
+[GeeksforGeeks](https://www.geeksforgeeks.org/what-is-the-md5-algorithm/)
+
 ### 2025-05-19 -
 Started on README.md, organizing all the requirements and task, and helped Leo with padding
 
