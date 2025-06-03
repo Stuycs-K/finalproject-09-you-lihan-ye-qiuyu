@@ -14,19 +14,20 @@ We also created our own version of hashcat, using our MD5 encryption tool.
 
 You have two options when running our hash program:   
 1. Input your own string    
-`make run ARGS="YOUR_STRING"`
+`make hash ARGS="YOUR_STRING"`
 2. Use a preset string     
-`make run ARGS="PRESET [1-3]"`
+`make hash ARGS="PRESET [1-3]"`
 
-You can also decode your hash using our hashcat:  
+You can also crack your hash using our hashcat:  
 *Note: We recommend using the rockyou pwd list*            
-`make run ARGS="YOUR_HASH PWD_LIST"`
+`make hashcat ARGS="YOUR_HASH PWD_LIST"`
 
 ### Resources/ References:
 
 1. [Amazing Youtube Video By Rareskills](https://www.youtube.com/watch?v=5MiMK45gkTY)
 2. [GeeksforGeeks](https://www.geeksforgeeks.org/what-is-the-md5-algorithm/)   
 3. [Wikipedia](https://en.wikipedia.org/wiki/MD5) 
+4. [Markdown Syntax Guide](https://www.markdownguide.org/basic-syntax/)
 
 We used the Wikipedia and GeeksforGeeks as a starter for MD5, allowing use to understand the general gist of MD5.
 However, it was confusing and hard to visualize the way the bitwise operations worked using their explanations. 
