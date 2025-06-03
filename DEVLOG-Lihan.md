@@ -36,3 +36,6 @@ adjusted makefile to include hashcat + worked on readme and presentation
 
 ### 2025-05-30
 finished readme and presentation
+
+### 2025-06-02
+worked on slides to explain md5 process
