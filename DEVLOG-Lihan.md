@@ -18,9 +18,13 @@ Wrote down all the formulas needed to perform MD5 hash in a .txt file for future
 ### 2025-05-19 -
 Started on README.md, organizing all the requirements and task, and helped Leo with padding
 
+[Markdown Syntax Guide](https://www.markdownguide.org/basic-syntax/)
+
 ### 2025-05-20 -
 Pair programming working on first step of MD5.
 Started working on PRESENTATION.md. 
+
+[Markdown Syntax Guide](https://www.markdownguide.org/basic-syntax/)
 
 ### 2025-05-21 -
 Worked on implementing the redbox portion of the algorithm.
