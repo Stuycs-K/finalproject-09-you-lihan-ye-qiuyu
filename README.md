@@ -10,6 +10,9 @@ Li Han You, Leo Ye
 Our project is a recreation of the MD5 encryption tool. Our program will take any string and convert it into a 128-bit hash.
 We also created our own version of hashcat, using our MD5 encryption tool. 
   
+### Video Link
+
+[Presentation](https://drive.google.com/drive/folders/1j3sBCbJXS5DT2iwoQupZIR1vLWifsh24?usp=drive_link)
 ### Instructions:
 
 You have two options when running our hash program:   
